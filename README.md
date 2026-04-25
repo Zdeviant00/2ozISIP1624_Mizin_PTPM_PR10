@@ -23,3 +23,5 @@
 ## 2. Диаграмма вариантов использования
 
 ![Use Case Diagram](UseCaseMatrixCipher.png)
+
+> 📄 [Исходный код диаграммы (PlantUML)](usecase.puml)
