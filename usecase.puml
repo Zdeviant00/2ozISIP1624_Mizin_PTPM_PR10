@@ -1,0 +1,49 @@
+@startuml
+left to right direction
+
+actor "Пользователь" as User
+
+rectangle "Матричный шифр (Перестановочный)" {
+  
+  ' === Основные функции ===
+  (Ввод исходного текста) as UC1
+  (Ввод количества строк) as UC2
+  (Ввод количества столбцов) as UC3
+  (Шифрование текста) as UC4
+  (Дешифрование текста) as UC5
+  (Просмотр результата) as UC6
+  
+  UC1 -[hidden]right-> UC2
+  UC2 -[hidden]right-> UC3
+  UC3 -[hidden]right-> UC4
+  UC4 -[hidden]right-> UC5
+  UC5 -[hidden]right-> UC6
+  
+  (Очистка полей ввода) as UC7
+  (Копирование результата) as UC8
+  
+  UC6 -[hidden]right-> UC7
+  UC7 -[hidden]right-> UC8
+  
+  (Валидация входных данных) as UC9
+  (Отображение ошибок) as UC10
+  (Всплывающие подсказки) as UC11
+  
+  UC9 -[hidden]down-> UC10
+  UC10 -[hidden]right-> UC11
+  
+  UC4 ..> UC9 : включает
+  UC5 ..> UC9 : включает
+  UC10 ..> UC9 : расширяет
+  UC11 ..> UC9 : расширяет
+}
+
+User -- UC1
+User -- UC2
+User -- UC3
+User -- UC4
+User -- UC5
+User -- UC6
+User -- UC7
+User -- UC8
+@enduml
