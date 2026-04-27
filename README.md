@@ -267,3 +267,25 @@
 | **Примечания/комментарии** | Проверка кодировки и сохранения пробелов |
 
 </details>
+
+## 4. Реализация автоматизированных тестов
+
+В соответствии с тестовыми сценариями разработан проект модульных тестов `MatrixCipher.Tests` на базе **MSTest v4** и **.NET 10**.
+
+### Структура и покрытие
+| ID сценария | Тестовый метод | Тип проверки |
+|-------------|----------------|--------------|
+| `TC_FUNC_001` | `MatrixEncryptDecrypt_RoundTrip_ReturnsOriginal` | Функциональная (Roundtrip) |
+| `TC_FUNC_002` | `MatrixEncrypt_ShortText_PaddsSpacesCorrectly` | Функциональная (Padding) |
+| `TC_NEG_003`  | `MatrixEncrypt_InvalidMatrixSize_ThrowsArgumentException` | Негативная (валидация размеров) |
+| `TC_NEG_004`  | `MatrixEncrypt_EmptyOrNullText_ThrowsArgumentException` | Негативная (валидация текста) |
+| `TC_FUNC_005` | `MatrixEncrypt_1xNMatrix_ReturnsOriginalText` | Граничная (1 строка) |
+| `TC_FUNC_006` | `MatrixEncrypt_Nx1Matrix_ReturnsOriginalText` | Граничная (1 столбец) |
+| `TC_FUNC_011` | `MatrixEncrypt_SpecialCharsAndSpaces_RoundTripSuccessful` | Функциональная (спецсимволы) |
+
+### Скриншот структуры тестового проекта
+![Test Project Structure](screenshots/test_project_structure.jpg)  
+*Рис. 1. Файловая структура проекта `MatrixCipher.Tests` и файл реализации тестов.*
+
+> 📝 Тесты написаны по методологии TDD: сначала зафиксированы сценарии, затем реализована заглушка ядра, после чего написаны проверки.
+
