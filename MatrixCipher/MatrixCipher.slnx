@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MatrixCipher.Core/MatrixCipher.Core.csproj" />
+  <Project Path="MatrixCipher.Tests/MatrixCipher.Tests.csproj" />
+</Solution>
