@@ -12,8 +12,8 @@ namespace MatrixCipher.Tests
             string original = "ПРИВЕТ МИР";
             int rows = 3, cols = 4;
 
-            string encrypted = MatrixCipher.Core.MatrixCipher.MatrixEncrypt(original, rows, cols);
-            string decrypted = MatrixCipher.Core.MatrixCipher.MatrixDecrypt(encrypted, rows, cols);
+            string encrypted = MatrixCipher.Core.MatrixEncryptor.Encrypt(original, rows, cols);
+            string decrypted = MatrixCipher.Core.MatrixDecryptor.Decrypt(encrypted, rows, cols);
 
             Assert.AreEqual(original, decrypted, "Дешифрованный текст должен точно совпадать с исходным.");
         }
@@ -24,8 +24,8 @@ namespace MatrixCipher.Tests
             string original = "АБВ";
             int rows = 2, cols = 3;
 
-            string encrypted = MatrixCipher.Core.MatrixCipher.MatrixEncrypt(original, rows, cols);
-            string decrypted = MatrixCipher.Core.MatrixCipher.MatrixDecrypt(encrypted, rows, cols);
+            string encrypted = MatrixCipher.Core.MatrixEncryptor.Encrypt(original, rows, cols);
+            string decrypted = MatrixCipher.Core.MatrixDecryptor.Decrypt(encrypted, rows, cols);
 
             Assert.AreEqual(rows * cols, encrypted.Length, "Длина шифротекста должна быть строго равна rows * cols.");
             Assert.AreEqual(original, decrypted, "При дешифровании замыкающие пробелы должны быть обрезаны.");
@@ -40,7 +40,7 @@ namespace MatrixCipher.Tests
         {
             try
             {
-                MatrixCipher.Core.MatrixCipher.MatrixEncrypt("ТЕСТ", rows, cols);
+                MatrixCipher.Core.MatrixEncryptor.Encrypt("ТЕСТ", rows, cols);
                 Assert.Fail("Ожидалось исключение ArgumentException, но его не было.");
             }
             catch (ArgumentException)
@@ -57,7 +57,7 @@ namespace MatrixCipher.Tests
         {
             try
             {
-                MatrixCipher.Core.MatrixCipher.MatrixEncrypt(text, 2, 2);
+                MatrixCipher.Core.MatrixEncryptor.Encrypt(text, 2, 2);
                 Assert.Fail("Ожидалось исключение ArgumentException, но его не было.");
             }
             catch (ArgumentException)
@@ -72,8 +72,8 @@ namespace MatrixCipher.Tests
             string original = "ПРОВЕРКА";
             int rows = 1, cols = 8;
 
-            string encrypted = MatrixCipher.Core.MatrixCipher.MatrixEncrypt(original, rows, cols);
-            string decrypted = MatrixCipher.Core.MatrixCipher.MatrixDecrypt(encrypted, rows, cols);
+            string encrypted = MatrixCipher.Core.MatrixEncryptor.Encrypt(original, rows, cols);
+            string decrypted = MatrixCipher.Core.MatrixDecryptor.Decrypt(encrypted, rows, cols);
 
             Assert.AreEqual(original, decrypted);
             Assert.AreEqual(original, encrypted.TrimEnd());
@@ -85,8 +85,8 @@ namespace MatrixCipher.Tests
             string original = "12345";
             int rows = 5, cols = 1;
 
-            string encrypted = MatrixCipher.Core.MatrixCipher.MatrixEncrypt(original, rows, cols);
-            string decrypted = MatrixCipher.Core.MatrixCipher.MatrixDecrypt(encrypted, rows, cols);
+            string encrypted = MatrixCipher.Core.MatrixEncryptor.Encrypt(original, rows, cols);
+            string decrypted = MatrixCipher.Core.MatrixDecryptor.Decrypt(encrypted, rows, cols);
 
             Assert.AreEqual(original, decrypted);
             Assert.AreEqual(original, encrypted.TrimEnd());
@@ -98,8 +98,8 @@ namespace MatrixCipher.Tests
             string original = "Hello World 123!";
             int rows = 4, cols = 4;
 
-            string encrypted = MatrixCipher.Core.MatrixCipher.MatrixEncrypt(original, rows, cols);
-            string decrypted = MatrixCipher.Core.MatrixCipher.MatrixDecrypt(encrypted, rows, cols);
+            string encrypted = MatrixCipher.Core.MatrixEncryptor.Encrypt(original, rows, cols);
+            string decrypted = MatrixCipher.Core.MatrixDecryptor.Decrypt(encrypted, rows, cols);
 
             Assert.AreEqual(original, decrypted, "Текст со спецсимволами и пробелами должен восстанавливаться без потерь.");
         }
