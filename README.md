@@ -339,4 +339,5 @@
 ### Скриншот приложения
 
 ![Matrix Cipher Application](screenshots/wpf_app_screenshot.jpg)
+
 *Рис. X. Интерфейс приложения Matrix Cipher с результатом шифрования*
