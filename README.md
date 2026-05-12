@@ -22,7 +22,7 @@
 
 ## 2. Диаграмма вариантов использования
 
-![Use Case Diagram](UseCaseMatrixCipher.jpg)
+![Use Case Diagram](UseCaseMatrixCipher.png)
 
 *Рис. 1. Диаграмма вариантов использования.*
 
